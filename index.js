@@ -12,8 +12,10 @@ const runServer = async () => {
     console.log("⚠ No se pudo conectar a MySQL:", error.message);
   }
 
-  server.listen(config.SERVER_PORT, config.SERVER_HOST, () => {
-    console.log(`Server running at http://${config.SERVER_HOST}:${config.SERVER_PORT}`);
+  const PORT = process.env.PORT || 3000;
+  
+  server.listen(PORT, () => {
+    console.log(Servidor corriendo en el puerto ${PORT});
   });
 };
 
