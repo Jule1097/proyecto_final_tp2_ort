@@ -4,27 +4,15 @@
   "description": "",
   "main": "index.js",
   "type": "module",
-  "license": "AGPL-version-3.0",
+  "license": "AGPL-3.0",
   "private": false,
   "engines": {
-    "node": ">= 14.0.0",
-    "npm": ">= 6.0.0"
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0"
   },
-  "homepage": "",
-  "repository": {
-    "type": "git",
-    "url": ""
-  },
-  "bugs": "",
-  "keywords": [],
-  "author": {
-    "name": "Shelo_Aixa_Julian_Belu"
-  },
-  "contributors": [],
   "scripts": {
     "start": "node index.js",
-    "dev": "node --watch index.js",
-    "format": "npx @biomejs/biome format --write /src index.js"
+    "dev": "node --watch index.js"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.81.1",
