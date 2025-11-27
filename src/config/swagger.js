@@ -1,45 +1,45 @@
-import swaggerJsdoc from 'swagger-jsdoc';
-import path from 'path';
-import { fileURLToPath } from 'url';
+import swaggerJsdoc from "swagger-jsdoc";
+import path from "path";
+import { fileURLToPath } from "url";
 
-// Necesario para construir rutas absolutas compatibles con Render
+// Crear __filename y __dirname en ESM
 const __filename = fileURLToPath(import.meta.url);
 const _dirname = path.dirname(_filename);
 
 const options = {
   definition: {
-    openapi: '3.0.0',
+    openapi: "3.0.0",
     info: {
-      title: 'API Productos Gamer',
-      version: '1.0.0',
+      title: "API Productos Gamer",
+      version: "1.0.0",
       description:
-        'API REST para gestión de usuarios y productos de computación. Desarrollada con Node.js, Express, MySQL y Supabase Auth.',
+        "API REST para gestión de usuarios y productos. Node.js, Express, MySQL y Supabase.",
     },
 
-    // 🔥 IMPORTANTE: NO USAR localhost ni 127.0.0.1 en Render
+    // Render NO permite localhost acá
     servers: [
       {
-        url: '/', 
-        description: 'Servidor desplegado (Render)'
-      }
+        url: "/",
+        description: "Servidor desplegado en Render",
+      },
     ],
 
     components: {
       securitySchemes: {
         bearerAuth: {
-          type: 'http',
-          scheme: 'bearer',
-          bearerFormat: 'JWT'
-        }
-      }
-    }
+          type: "http",
+          scheme: "bearer",
+          bearerFormat: "JWT",
+        },
+      },
+    },
   },
 
-  // 🔥 Usamos rutas absolutas que funcionan tanto local como en Render
+  // Rutas absolutas → necesarias en Render
   apis: [
-    path.join(__dirname, '../router/*.js'),
-    path.join(__dirname, '../server.js')
-  ]
+    path.join(__dirname, "../router/*.js"),
+    path.join(__dirname, "../server.js"),
+  ],
 };
 
 export const swaggerSpec = swaggerJsdoc(options);
