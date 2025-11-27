@@ -22,7 +22,7 @@
   },
   "contributors": [],
   "scripts": {
-    "dev": "node --watch index.js",
+    "start": "node --watch index.js",
     "format": "npx @biomejs/biome format --write /src index.js"
   },
   "dependencies": {
